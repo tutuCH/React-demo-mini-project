@@ -6,9 +6,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Container from '@material-ui/core/Container';
-import HelloWorld from './components/helloWorld/helloWorld'
+// eslint-disable-next-line
 import { Grid, Typography } from '@material-ui/core';
-import { Switch, Route } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -70,11 +69,8 @@ const Algorithm = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button 
-                      size="small"
-                      color="primary"
-                      // exact path = "/hello-world" component = {HelloWorld}
-                    >
+                    <Button size="small" color="primary"
+                    href="https://www.google.com/">
                       View
                     </Button>
                     {/* <Button size="small" color="primary">
