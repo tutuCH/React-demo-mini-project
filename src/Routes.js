@@ -15,8 +15,11 @@ import {
   Settings as SettingsView,
   SignUp as SignUpView,
   SignIn as SignInView,
-  NotFound as NotFoundView
+  NotFound as NotFoundView,
+  helloWorld as HelloWorldView
 } from './views';
+
+//import { HelloWorld as HelloWorldView } from "./views/Algorithm/components/helloWorld";
 
 const Routes = () => {
   return (
@@ -31,6 +34,12 @@ const Routes = () => {
         exact
         layout={MainLayout}
         path="/algorithm"
+      />
+      <RouteWithLayout
+        component={HelloWorldView}
+        exact
+        layout={MainLayout}
+        path="/algorithm/helloworld"
       />
       <RouteWithLayout
         component={DashboardView}

@@ -73,7 +73,7 @@ const Algorithm = () => {
                     <Button 
                       size="small"
                       color="primary"
-                      // exact path = "/hello-world" component = {HelloWorld}
+                      href="/algorithm/helloworld"
                     >
                       View
                     </Button>
