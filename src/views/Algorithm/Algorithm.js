@@ -6,9 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Container from '@material-ui/core/Container';
-import HelloWorld from './components/helloWorld/helloWorld'
 import { Grid, Typography } from '@material-ui/core';
-import { Switch, Route } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -73,7 +71,8 @@ const Algorithm = () => {
                     <Button 
                       size="small"
                       color="primary"
-                      href="/algorithm/helloworld"
+                      // href="/algorithm/SortingVisualiser"
+                      href="/algorithm/sorting-algorithm"
                     >
                       View
                     </Button>

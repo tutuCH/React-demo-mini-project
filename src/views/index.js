@@ -9,4 +9,5 @@ export { default as SignUp } from './SignUp';
 export { default as Typography } from './Typography';
 export { default as UserList } from './UserList';
 export { default as Algorithm } from './Algorithm';
-export { default as helloWorld } from './Algorithm/components/helloWorld';
+export { default as SortingAlgorithm } from './Algorithm/components/SortingAlgorithm';
+// export { default as SortingAlgorithm } from './Algorithm/components/SortingAlgorithm';
