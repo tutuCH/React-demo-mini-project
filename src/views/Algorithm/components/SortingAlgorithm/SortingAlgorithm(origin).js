@@ -40,7 +40,7 @@ const SortingAlgorithm = () => {
       <Grid
         container
         justify="center"
-        spacing={4}
+        spacing={12}
       >
         <Grid
           item
@@ -49,17 +49,14 @@ const SortingAlgorithm = () => {
         >
 
 <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
-            {/* {cards.map((card) => ( */}
-              {/* <Grid item key={card} xs={12} sm={6} lg={4} xl={4}> */}
-              <Grid item xs={12} sm={6} lg={4} xl={4}>
+              <Grid item xs={12} sm={12} lg={12} xl={12}>
                 <Card className={classes.card}>
-                  <CardMedia
+                  {/* <CardMedia
                     className={classes.cardMedia}
                     image="https://source.unsplash.com/random"
                     title="Image title"
-                  />
+                  /> */}
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Heading
@@ -73,18 +70,11 @@ const SortingAlgorithm = () => {
                     href="https://www.google.com/">
                       View
                     </Button>
-                    {/* <Button size="small" color="primary">
-                      Edit
-                    </Button> */}
                   </CardActions>
                 </Card>
               </Grid>
-            {/* ))} */}
           </Grid>
         </Container>
-          {/* <div className={classes.content}>
-
-          </div> */}
         </Grid>
       </Grid>
     </div>
