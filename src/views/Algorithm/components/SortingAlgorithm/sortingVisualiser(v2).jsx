@@ -4,9 +4,9 @@ import './sortingVisualiser(v2).css';
 import { makeStyles } from '@material-ui/styles';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-// import CardActions from '@material-ui/core/CardActions';
+import CardActions from '@material-ui/core/CardActions';
 // import CardMedia from '@material-ui/core/CardMedia';
-// import CardContent from '@material-ui/core/CardContent';
+import CardContent from '@material-ui/core/CardContent';
 import Container from '@material-ui/core/Container';
 // eslint-disable-next-line
 import { Grid, Typography, ThemeProvider } from '@material-ui/core';
@@ -16,7 +16,7 @@ import { Grid, Typography, ThemeProvider } from '@material-ui/core';
 const ANIMATION_SPEED_MS = 1;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 125;
+const NUMBER_OF_ARRAY_BARS = 150;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
@@ -26,31 +26,44 @@ const SECONDARY_COLOR = 'red';
 
 const RANGE_OF_ARRAY = 300;
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(4)
+  },
+  content: {
+    paddingTop: 150,
+    textAlign: 'center'
+  },
+  image: {
+    marginTop: 50,
+    display: 'inline-block',
+    maxWidth: '100%',
+    width: 560
+  },
 
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+}));
 
-export default class SortingVisualizer extends React.Component {
-  constructor(props) {
-    super(props);
+function SortingVisualizer(props) {
 
-    this.state = {
-      array: [],
-    };
-  }
+  const [array, setArray] = useState([])
 
-  componentDidMount() {
-    this.resetArray();
-  }
+  useEffect(() => {
+    resetArray()
+  },[])
 
-  resetArray() {
+  const resetArray = () => {
     const array = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
       array.push(randomIntFromInterval(5, RANGE_OF_ARRAY));
     }
-    this.setState({array});
+    setArray(array);
   }
 
-  mergeSort() {
-    const animations = getMergeSortAnimations(this.state.array);
+  const mergeSort = () => {
+    const animations = getMergeSortAnimations(array);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName('array-bar');
       const isColorChange = i % 3 !== 2;
@@ -73,22 +86,23 @@ export default class SortingVisualizer extends React.Component {
     }
   }
 
-  quickSort() {
+  const quickSort = () => {
     // We leave it as an exercise to the viewer of this code to implement this method.
   }
 
-  heapSort() {
+  const heapSort = () => {
     // We leave it as an exercise to the viewer of this code to implement this method.
   }
 
-  bubbleSort() {
+  const bubbleSort = () => {
     // We leave it as an exercise to the viewer of this code to implement this method.
   }
 
   // NOTE: This method will only work if your sorting algorithms actually return
   // the sorted arrays; if they return the animations (as they currently do), then
   // this method will be broken.
-  testSortingAlgorithms() {
+  // eslint-disable-next-line
+  const testSortingAlgorithms = () => {
     for (let i = 0; i < 100; i++) {
       const array = [];
       const length = randomIntFromInterval(1, 1000);
@@ -101,11 +115,25 @@ export default class SortingVisualizer extends React.Component {
     }
   }
 
-  render() {
-    const {array} = this.state;
-
+  // render() {
+    //const {array} = array;
+    const classes = useStyles();
     return (
-      <div className="array-container">
+      <div className={classes.root}>
+      <Grid
+        container
+        justify="center"
+        spacing={10}
+      >
+        <Grid
+          item
+          lg={12}
+          xs={12}
+        ></Grid>
+        <Container className={classes.cardGrid} maxWidth="md">
+        <Grid container spacing={12}>
+        <Card className={classes.card}>
+        <CardContent className={classes.cardContent}>
         {array.map((value, idx) => (
           <div
             className="array-bar"
@@ -115,18 +143,32 @@ export default class SortingVisualizer extends React.Component {
               height: `${value}px`,
             }}></div>
         ))}
-        <button onClick={() => this.resetArray()}>Generate New Array</button>
-        <button onClick={() => this.mergeSort()}>Merge Sort</button>
-        <button onClick={() => this.quickSort()}>Quick Sort</button>
-        <button onClick={() => this.heapSort()}>Heap Sort</button>
-        <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
-        <button onClick={() => this.testSortingAlgorithms()}>
+        </CardContent>
+        
+        <CardActions>
+        <Button onClick={() => resetArray()}>Generate New Array</Button>
+        <Button onClick={() => mergeSort()}>Merge Sort</Button>
+        <Button onClick={() => quickSort()}>Quick Sort</Button>
+        <Button onClick={() => heapSort()}>Heap Sort</Button>
+        <Button onClick={() => bubbleSort()}>Bubble Sort</Button>
+        {/* <button onClick={() => testSortingAlgorithms()}>
           Test Sorting Algorithms (BROKEN)
-        </button>
+        </button> */}
+        </CardActions>
+        </Card>
+        <Grid container spacing={12}>
+        <div style={{marginTop:'3%'}} >
+        <p >This algorithm visualiser is based on the tutorial on </p>
+        <p><a href="https://www.youtube.com/watch?v=pFXYym4Wbkc&list=PLZzu81xXY9AsNLtmW7FkX1BrGnrYFCAMa&index=4&t=0s">https://www.youtube.com/watch?v=pFXYym4Wbkc&list=PLZzu81xXY9AsNLtmW7FkX1BrGnrYFCAMa&index=4&t=0s</a></p>
+        </div>
+        </Grid>
+        </Grid>
+        </Container>
+        </Grid>
       </div>
     );
   }
-}
+//}
 
 // From https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 function randomIntFromInterval(min, max) {
@@ -143,3 +185,5 @@ function arraysAreEqual(arrayOne, arrayTwo) {
   }
   return true;
 }
+
+export default SortingVisualizer;

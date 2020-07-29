@@ -61,10 +61,10 @@ const Algorithm = () => {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      Sorting Algorithm
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      Sorting Visualiser
                     </Typography>
                   </CardContent>
                   <CardActions>

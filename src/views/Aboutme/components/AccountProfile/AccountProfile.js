@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import moment from 'moment';
 import { makeStyles } from '@material-ui/styles';
+  // eslint-disable-next-line
 import {
   Card,
+  CardMedia,
   CardActions,
   CardContent,
   Avatar,
   Typography,
   Divider,
   Button,
-  LinearProgress
+  LinearProgress,
+  Container
 } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -21,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     marginLeft: 'auto',
-    height: 110,
+    height: 100,
     width: 100,
     flexShrink: 0,
     flexGrow: 0
@@ -48,10 +51,16 @@ const AccountProfile = props => {
   };
 
   return (
+    <Container className={classes.cardGrid} maxWidth="md">
     <Card
       {...rest}
       className={clsx(classes.root, className)}
-    >
+    >                  
+      <CardMedia
+        className={classes.cardMedia}
+        image="https://source.unsplash.com/random"
+        title="Image title"
+      />
       <CardContent>
         <div className={classes.details}>
           <div>
@@ -88,16 +97,16 @@ const AccountProfile = props => {
             >
               CUHK CS Student
         </Typography>
-        {/* <div className={classes.progress}>
+        <div className={classes.progress}>
           <Typography variant="body1">Profile Completeness: 70%</Typography>
           <LinearProgress
             value={70}
             variant="determinate"
           />
-        </div> */}
+        </div>
       </CardContent>
-      <Divider />
-      {/* <CardActions>
+      {/* <Divider />
+      <CardActions>
         <Button
           className={classes.uploadButton}
           color="primary"
@@ -108,6 +117,7 @@ const AccountProfile = props => {
         <Button variant="text">Remove picture</Button>
       </CardActions> */}
     </Card>
+    </Container>
   );
 };
 

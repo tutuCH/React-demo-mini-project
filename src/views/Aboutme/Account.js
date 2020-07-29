@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
-
+  // eslint-disable-next-line
 import { AccountProfile, AccountDetails } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -21,14 +21,14 @@ const Aboutme = () => {
       >
         <Grid
           item
-          lg={4}
-          md={6}
-          xl={4}
+          lg={12}
+          md={12}
+          xl={12}
           xs={12}
         >
           <AccountProfile />
         </Grid>
-        <Grid
+        {/* <Grid
           item
           lg={8}
           md={6}
@@ -36,7 +36,7 @@ const Aboutme = () => {
           xs={12}
         >
           <AccountDetails />
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   );
