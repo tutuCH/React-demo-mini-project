@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Divider, Drawer } from '@material-ui/core';
+import AboutmeIcon from '@material-ui/icons/AccountCircle';
 import AlgorithmIcon from '@material-ui/icons/ScatterPlot';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
@@ -44,6 +45,11 @@ const Sidebar = props => {
   const classes = useStyles();
 
   const pages = [
+    {
+      title: 'About Me',
+      href: '/about-me',
+      icon: <AboutmeIcon />
+    },
     {
       title: 'Algorithm',
       href: '/algorithm',

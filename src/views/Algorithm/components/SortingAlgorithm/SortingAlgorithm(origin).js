@@ -65,12 +65,12 @@ const SortingAlgorithm = () => {
                       This is a media card. You can use this section to describe the content.
                     </Typography>
                   </CardContent>
-                  <CardActions>
+                  {/* <CardActions>
                     <Button size="small" color="primary"
                     href="https://www.google.com/">
                       View
                     </Button>
-                  </CardActions>
+                  </CardActions> */}
                 </Card>
               </Grid>
           </Grid>

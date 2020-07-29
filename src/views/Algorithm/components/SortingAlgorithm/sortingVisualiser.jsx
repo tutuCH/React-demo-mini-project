@@ -1,5 +1,5 @@
 import React from "react";
-
+import Button from '@material-ui/core/Button';
 import { randomIntFromInterval } from "../../../../utils/randomIntFromInterval";
 import ComplexityTable from "./complexityTable";
 import {
@@ -202,7 +202,6 @@ export default class SortingVisualiser extends React.Component {
         const { disabled } = this.state;
         return (
             <div>
-                <BackBar />
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-7">
@@ -214,13 +213,13 @@ export default class SortingVisualiser extends React.Component {
                         <div className="col-sm-5 mt-1">
                             <div className="input-group mt-1">
                                 <div className="input-group-prepend">
-                                    <button
+                                    <Button
                                         onClick={() => this.resetArray()}
                                         className="btn btn-danger"
                                         disabled={disabled}
                                     >
                                         New Array
-                                    </button>
+                                    </Button>
                                 </div>
                                 <select
                                     className="custom-select"

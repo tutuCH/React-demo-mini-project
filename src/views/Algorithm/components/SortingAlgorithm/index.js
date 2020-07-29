@@ -1,1 +1,1 @@
-export { default } from "./SortingAlgorithm(origin)";
+export { default } from "./sortingVisualiser(v2)";

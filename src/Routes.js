@@ -5,6 +5,7 @@ import { RouteWithLayout } from './components';
 import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
 
 import {
+  Aboutme as AboutmeView,
   Algorithm as AlgorithmView,
   Dashboard as DashboardView,
   ProductList as ProductListView,
@@ -27,6 +28,12 @@ const Routes = () => {
         exact
         from="/"
         to="/dashboard"
+      />
+      <RouteWithLayout
+        component={AboutmeView}
+        exact
+        layout={MainLayout}
+        path="/about-me"
       />
       <RouteWithLayout
         component={AlgorithmView}
