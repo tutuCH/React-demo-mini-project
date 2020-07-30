@@ -10,6 +10,7 @@ import {
   CardActions,
   CardContent,
   Avatar,
+  Grid,
   Typography,
   Divider,
   Button,
@@ -23,9 +24,12 @@ const useStyles = makeStyles(theme => ({
     display: 'flex'
   },
   avatar: {
-    marginLeft: 'auto',
-    height: 100,
-    width: 100,
+    border: '0px solid #92A6B6',
+    marginTop: '-8%',
+    marginLeft: '42%',
+    height: 125,
+    width: 125,
+    boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19)',
     flexShrink: 0,
     flexGrow: 0
   },
@@ -34,12 +38,13 @@ const useStyles = makeStyles(theme => ({
   },
   uploadButton: {
     marginRight: theme.spacing(2)
-  }
+  },
+  cardMedia: {
+    paddingTop: '30%', // 24:9
+  },
 }));
 
 const AccountProfile = props => {
-  const { className, ...rest } = props;
-
   const classes = useStyles();
 
   const user = {
@@ -47,14 +52,20 @@ const AccountProfile = props => {
     city: 'Hong Kong/ Taiwan',
     country: 'Hong Kong',
     timezone: 'GTM-7',
-    avatar: '/images/avatars/avatar_11.png'
+    avatar: '/images/avatars/avatar.jpg',
+    selfIntro: 'Final Year Computer Science Student',
+    school: 'The Chinese University of Hong Kong'
   };
 
   return (
+    <Grid
+    container
+    justify="center"
+    spacing={4}
+    >
     <Container className={classes.cardGrid} maxWidth="md">
     <Card
-      {...rest}
-      className={clsx(classes.root, className)}
+      className={(classes.card)}
     >                  
       <CardMedia
         className={classes.cardMedia}
@@ -62,62 +73,76 @@ const AccountProfile = props => {
         title="Image title"
       />
       <CardContent>
-        <div className={classes.details}>
-          <div>
-            <Typography
-              gutterBottom
-              variant="h2"
-            >
-              {user.name}
-            </Typography>
-            <Typography
-              className={classes.locationText}
-              color="textSecondary"
-              variant="body1"
-            >
-              {user.city}, {user.country}
-            </Typography>
-            <Typography
-              className={classes.dateText}
-              color="textSecondary"
-              variant="body1"
-            >
-              {moment().format('hh:mm A')} ({user.timezone})
-            </Typography>
-          </div>
+        <div>
           <Avatar
             className={classes.avatar}
             src={user.avatar}
           />
         </div>
-        <Typography
-              className={classes.dateText}
-              color="textPrimary"
-              variant="body1"
-            >
-              CUHK CS Student
-        </Typography>
-        <div className={classes.progress}>
-          <Typography variant="body1">Profile Completeness: 70%</Typography>
-          <LinearProgress
-            value={70}
-            variant="determinate"
-          />
+        <div className={classes.details}>
+          <div>
+              <Typography
+                gutterBottom
+                variant="h2"
+                color="#0A3659"
+              >
+                Harry Tu
+              </Typography>
+              <Typography
+                className={classes.locationText}
+                color="textSecondary"
+                variant="body2"
+              >
+                {user.city}
+              </Typography>
+              <Typography
+                className={classes.dateText}
+                color="textSecondary"
+                variant="body1"
+              >
+                {user.selfIntro}
+              </Typography>
+              <Typography
+                className={classes.dateText}
+                color="textSecondary"
+                variant="body1"
+              >
+                {user.school}
+              </Typography>
+          </div>
         </div>
       </CardContent>
-      {/* <Divider />
-      <CardActions>
-        <Button
-          className={classes.uploadButton}
-          color="primary"
-          variant="text"
-        >
-          Upload picture
-        </Button>
-        <Button variant="text">Remove picture</Button>
-      </CardActions> */}
+    </Card>
+
+
+
+    <Card
+      className={(classes.card)}
+      style={{marginTop:'3%'}}
+    >     
+      <CardContent>
+        <div className={classes.details}>
+          <div>
+              <Typography
+                className={classes.locationText}
+                variant="h3"
+              >
+                Experience
+              </Typography>
+              <Typography
+                className={classes.locationText}
+                variant="body1"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </Typography>
+              
+          </div>
+        </div>
+      </CardContent>
+      
     </Card>
     </Container>
+    </Grid>
   );
 };
 

@@ -157,9 +157,9 @@ function SortingVisualizer(props) {
         </CardActions>
         </Card>
         <Grid container spacing={12}>
-        <div style={{marginTop:'3%'}} >
-        <p >This algorithm visualiser is based on the tutorial on </p>
-        <p><a href="https://www.youtube.com/watch?v=pFXYym4Wbkc&list=PLZzu81xXY9AsNLtmW7FkX1BrGnrYFCAMa&index=4&t=0s">https://www.youtube.com/watch?v=pFXYym4Wbkc&list=PLZzu81xXY9AsNLtmW7FkX1BrGnrYFCAMa&index=4&t=0s</a></p>
+        <div style={{marginTop:'2%'}} >
+        <Typography>This algorithm visualiser is based on the tutorial on </Typography>
+        <Typography><a href="https://www.youtube.com/watch?v=pFXYym4Wbkc&list=PLZzu81xXY9AsNLtmW7FkX1BrGnrYFCAMa&index=4&t=0s">https://www.youtube.com/watch?v=pFXYym4Wbkc&list=PLZzu81xXY9AsNLtmW7FkX1BrGnrYFCAMa&index=4&t=0s</a></Typography>
         </div>
         </Grid>
         </Grid>
