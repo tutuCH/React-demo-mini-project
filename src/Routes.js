@@ -17,7 +17,8 @@ import {
   SignUp as SignUpView,
   SignIn as SignInView,
   NotFound as NotFoundView,
-  SortingAlgorithm as SortingAlgorithmView
+  SortingAlgorithm as SortingAlgorithmView,
+  Game2048 as Game2048View
 } from './views';
 
 
@@ -27,7 +28,7 @@ const Routes = () => {
       <Redirect
         exact
         from="/"
-        to="/dashboard"
+        to="/about-me"
       />
       <RouteWithLayout
         component={AboutmeView}
@@ -46,6 +47,12 @@ const Routes = () => {
         exact
         layout={MainLayout}
         path="/algorithm/sorting-algorithm"
+      />
+      <RouteWithLayout
+        component={Game2048View}
+        exact
+        layout={MainLayout}
+        path="/algorithm/game-2048"
       />
       <RouteWithLayout
         component={DashboardView}

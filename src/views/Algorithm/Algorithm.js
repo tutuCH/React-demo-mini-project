@@ -48,10 +48,8 @@ const Algorithm = () => {
         >
 
 <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
-            {/* {cards.map((card) => ( */}
-              {/* <Grid item key={card} xs={12} sm={6} lg={4} xl={4}> */}
+              {/* card for sorting algorithm*/} 
               <Grid item xs={12} sm={6} lg={4} xl={4}>
                 <Card className={classes.card}>
                   <CardMedia
@@ -71,23 +69,59 @@ const Algorithm = () => {
                     <Button 
                       size="small"
                       color="primary"
-                      // href="/algorithm/SortingVisualiser"
                       href="/algorithm/sorting-algorithm"
                     >
                       View
                     </Button>
-                    {/* <Button size="small" color="primary">
-                      Edit
-                    </Button> */}
                   </CardActions>
                 </Card>
-              </Grid>
-            {/* ))} */}
+                </Grid>
+
+                {/* card for game 2048*/} 
+                <Grid item xs={12} sm={6} lg={4} xl={4}>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image="https://source.unsplash.com/random"
+                      title="Image title"
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        2048
+                      </Typography>
+                      <Typography>
+                        A repo of the popular game 2048
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button 
+                        size="small"
+                        color="primary"
+                        href="/algorithm/game-2048"
+                      >
+                        View
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+
+                {/* card for tbc*/}
+                <Grid item xs={12} sm={6} lg={4} xl={4}>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image="https://source.unsplash.com/random"
+                      title="Image title"
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        To be continued...
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
           </Grid>
         </Container>
-          {/* <div className={classes.content}>
-
-          </div> */}
         </Grid>
       </Grid>
     </div>

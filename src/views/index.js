@@ -11,4 +11,5 @@ export { default as UserList } from './UserList';
 export { default as Aboutme } from './Aboutme';
 export { default as Algorithm } from './Algorithm';
 export { default as SortingAlgorithm } from './Algorithm/components/SortingAlgorithm';
+export { default as Game2048 } from './Algorithm/components/Game2048';
 // export { default as SortingAlgorithm } from './Algorithm/components/SortingAlgorithm';
