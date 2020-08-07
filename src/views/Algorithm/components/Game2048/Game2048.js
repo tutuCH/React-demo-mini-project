@@ -70,6 +70,12 @@ const Game2048 = () => {
           grid[i][tmp] = 0;
           tmp--;
         }
+        while(grid[i][tmp] !== 0 && grid[i][tmp-1]===grid[i][tmp] && tmp-1 >= 0){
+          grid[i][tmp-1] = grid[i][tmp] + grid[i][tmp-1];
+          grid[i][tmp] = 0;
+          tmp--;
+        }
+       
       }
     }
   }
@@ -83,6 +89,11 @@ const Game2048 = () => {
           grid[i][tmp] = 0
           tmp++;
         }
+        while(grid[i][tmp] !== 0 && grid[i][tmp+1]===grid[i][tmp] && tmp+1 <= 3){
+          grid[i][tmp+1] = grid[i][tmp] + grid[i][tmp+1];
+          grid[i][tmp] = 0
+          tmp++;
+        }
       }
     }
   }
@@ -93,20 +104,17 @@ const Game2048 = () => {
         let tmp = i;
         try{
           while(grid[tmp][j] !== 0 && grid[tmp-1][j]===0 && tmp-1 >= 0){
-            if(tmp === 1){
-              grid[0][j] = grid[tmp][j];
-            }
-            
             grid[tmp-1][j] = grid[tmp][j];
             grid[tmp][j] = 0;
-            //console.log('tmp before:',tmp);
             tmp--;
-            //console.log('tmp after:',tmp);
+          }
+          while(grid[tmp][j] !== 0 && grid[tmp-1][j]===grid[tmp][j] && tmp-1 >= 0){
+            grid[tmp-1][j] = grid[tmp][j] + grid[tmp-1][j];
+            grid[tmp][j] = 0;
+            tmp--;
           }
         }catch(err){
-          //console.log(err);
-          //console.log(tmp);
-          grid[0][j] = grid[tmp][j];
+          //console.log('err sliding up:');
         }
       }
     } 
@@ -117,30 +125,34 @@ const Game2048 = () => {
       for(let i = 2; i>=0 ; i--){
         let tmp = i;
         try{
-          while(grid[tmp][j] !== 0 && grid[tmp-1][j]===0 && tmp+1 <= 3){
+          while(grid[tmp][j] !== 0 && grid[tmp+1][j]===0 && tmp+1 <= 3){
             grid[tmp+1][j] = grid[tmp][j];
             grid[tmp][j] = 0
             tmp++;
           }
+          while(grid[tmp][j] !== 0 && grid[tmp+1][j]===grid[tmp][j] && tmp+1 <= 3){
+            grid[tmp+1][j] = grid[tmp+1][j] + grid[tmp][j];
+            grid[tmp][j] = 0;
+            tmp++;
+          }
         }catch{
-          //grid[0][j] = grid[tmp][j];
-          //console.log(grid[tmp+1][j]);
-          //console.log(tmp);
         }
       }
     } 
   }
 
-  console.table(grid);
+  //console.table(grid);
   addNumber();
   addNumber();
+  addNumber();
+  // addNumber();
   console.table(grid);
   slideRight();
-  console.table(grid);
+  // console.table(grid);
   slideLeft();
-  console.table(grid);
+  // console.table(grid);
   slideUp();
-  console.table(grid);
+  // console.table(grid);
   slideDown();
   console.table(grid);
   return (
