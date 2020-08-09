@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 // import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Container from '@material-ui/core/Container';
+import KeyboardEventHandler from 'react-keyboard-event-handler';
 // eslint-disable-next-line
 import { Grid, Typography } from '@material-ui/core';
 
@@ -70,7 +71,7 @@ const Game2048 = () => {
           grid[i][tmp] = 0;
           tmp--;
         }
-        while(grid[i][tmp] !== 0 && grid[i][tmp-1]===grid[i][tmp] && tmp-1 >= 0){
+        if(grid[i][tmp] !== 0 && grid[i][tmp-1]===grid[i][tmp] && tmp-1 >= 0){
           grid[i][tmp-1] = grid[i][tmp] + grid[i][tmp-1];
           grid[i][tmp] = 0;
           tmp--;
@@ -78,6 +79,8 @@ const Game2048 = () => {
        
       }
     }
+    console.table(grid);
+    addNumber()
   }
 
   const slideRight = (row) => {
@@ -89,13 +92,15 @@ const Game2048 = () => {
           grid[i][tmp] = 0
           tmp++;
         }
-        while(grid[i][tmp] !== 0 && grid[i][tmp+1]===grid[i][tmp] && tmp+1 <= 3){
+        if(grid[i][tmp] !== 0 && grid[i][tmp+1]===grid[i][tmp] && tmp+1 <= 3){
           grid[i][tmp+1] = grid[i][tmp] + grid[i][tmp+1];
-          grid[i][tmp] = 0
-          tmp++;
+          grid[i][tmp] = 0;
+          //slideRight();
         }
       }
     }
+    console.table(grid);
+    addNumber()
   }
 
   const slideUp = (row) => {
@@ -108,7 +113,7 @@ const Game2048 = () => {
             grid[tmp][j] = 0;
             tmp--;
           }
-          while(grid[tmp][j] !== 0 && grid[tmp-1][j]===grid[tmp][j] && tmp-1 >= 0){
+          if(grid[tmp][j] !== 0 && grid[tmp-1][j]===grid[tmp][j] && tmp-1 >= 0){
             grid[tmp-1][j] = grid[tmp][j] + grid[tmp-1][j];
             grid[tmp][j] = 0;
             tmp--;
@@ -117,7 +122,9 @@ const Game2048 = () => {
           //console.log('err sliding up:');
         }
       }
-    } 
+    }
+    console.table(grid);
+    addNumber()
   }
 
   const slideDown = (row) => {
@@ -130,7 +137,7 @@ const Game2048 = () => {
             grid[tmp][j] = 0
             tmp++;
           }
-          while(grid[tmp][j] !== 0 && grid[tmp+1][j]===grid[tmp][j] && tmp+1 <= 3){
+          if(grid[tmp][j] !== 0 && grid[tmp+1][j]===grid[tmp][j] && tmp+1 <= 3){
             grid[tmp+1][j] = grid[tmp+1][j] + grid[tmp][j];
             grid[tmp][j] = 0;
             tmp++;
@@ -138,23 +145,29 @@ const Game2048 = () => {
         }catch{
         }
       }
-    } 
+    }
+    console.table(grid);
+    addNumber()
   }
 
   //console.table(grid);
-  addNumber();
-  addNumber();
+  // for(let i =0; i< 6; i++){
+  //   addNumber();
+  // }
   addNumber();
   // addNumber();
+  // addNumber();
+  // addNumber();
   console.table(grid);
-  slideRight();
+  // slideRight();
   // console.table(grid);
-  slideLeft();
+  // slideLeft();
   // console.table(grid);
-  slideUp();
+  // slideUp();
   // console.table(grid);
-  slideDown();
-  console.table(grid);
+  // slideDown();
+  //console.table(grid);
+
   return (
     <div className={classes.root}>
       <Grid
@@ -173,7 +186,31 @@ const Game2048 = () => {
               <Grid item xs={12} sm={12} lg={12} xl={12}>
                 <Card className={classes.card}>
                   <CardContent className={classes.cardContent}>
-                  
+                  {/* <div>key detected: {props.eventKey}</div> */}
+                  <KeyboardEventHandler
+                    handleKeys={['left']}
+                    onKeyEvent={(key, e) => slideLeft()}
+                    // onKeyEvent={console.log(`do something upon keydown event of ${key}`)}
+                  >
+                  </KeyboardEventHandler>
+                  <KeyboardEventHandler
+                    handleKeys={['right']}
+                    onKeyEvent={(key, e) => slideRight()}
+                    // onKeyEvent={console.log(`do something upon keydown event of ${key}`)}
+                  >
+                  </KeyboardEventHandler>
+                  <KeyboardEventHandler
+                    handleKeys={['up']}
+                    onKeyEvent={(key, e) => slideUp()}
+                    // onKeyEvent={console.log(`do something upon keydown event of ${key}`)}
+                  >
+                  </KeyboardEventHandler>
+                  <KeyboardEventHandler
+                    handleKeys={['down']}
+                    onKeyEvent={(key, e) => slideDown()}
+                    // onKeyEvent={console.log(`do something upon keydown event of ${key}`)}
+                  >
+                  </KeyboardEventHandler>
                   </CardContent>
                 </Card>
               </Grid>
