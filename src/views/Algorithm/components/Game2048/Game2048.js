@@ -9,6 +9,7 @@ import Container from '@material-ui/core/Container';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 // eslint-disable-next-line
 import { Grid, Typography } from '@material-ui/core';
+import reactKeyboardEventHandler from 'react-keyboard-event-handler';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -154,6 +155,7 @@ const Game2048 = () => {
   // for(let i =0; i< 6; i++){
   //   addNumber();
   // }
+  let endgame = 0
   addNumber();
   // addNumber();
   // addNumber();
